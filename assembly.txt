@@ -1,0 +1,25 @@
+.data
+string: db "Hello, World!",10
+string_length: dw 14
+
+.code
+_start:
+movi ra string
+movi rc string_length
+ldw rc rc
+loop:
+ldb rb ra
+out rb
+addi ra 1
+subis rc 1
+jne loop
+movi ra string
+movi rc string_length
+ldw rc rc
+loop2:
+in rb
+stb rb ra
+addi ra 1
+subis rc 1
+jne loop2
+hlt
